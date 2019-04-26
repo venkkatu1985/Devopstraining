@@ -12,7 +12,7 @@ pipeline {
 				description: 'The Major.Minor.Patch for the Component level. This will update the CDA ComponentVersion.', 
 				name: 'COMPONENTVERSION' )
 
-		string( defaultValue: "venkkat.u@gmail.com"
+		string( defaultValue: "venkkat.u@gmail.com",
 				description: 'E-mail Addresses for users who need failed or succesful build e-mails',
 				name: 'EMAIL_LIST')
 
