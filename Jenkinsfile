@@ -34,9 +34,10 @@ pipeline {
 		timeout(time: 60, unit: 'MINUTES')
     }*/
 
-    triggers {
+    /*triggers {
         gitlab(triggerOnPush: true, triggerOnMergeRequest: true, branchFilterType: 'All')
-    }
+    }*/
+	
 
     stages {
 		stage('Checkout') {
