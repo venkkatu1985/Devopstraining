@@ -12,10 +12,6 @@ pipeline {
 				description: 'The Major.Minor.Patch for the Component level. This will update the CDA ComponentVersion.', 
 				name: 'COMPONENTVERSION' )
 
-		string(	defaultValue: 'C:\\deploymentlocation\project1', 
-				description: 'Used for Solution file name and the build file name. Make sure they match!', 
-				name: 'SHAREDURI' )
-
 		string( defaultValue: "venkkat.u@gmail.com"
 				description: 'E-mail Addresses for users who need failed or succesful build e-mails',
 				name: 'EMAIL_LIST')
