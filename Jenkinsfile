@@ -34,10 +34,10 @@ pipeline {
 		timeout(time: 60, unit: 'MINUTES')
     }*/
 
-    /*triggers {
-        gitlab(triggerOnPush: true, triggerOnMergeRequest: true, branchFilterType: 'All')
-    }*/
-	
+    triggers {
+        git(triggerOnPush: true, triggerOnMergeRequest: true, branchFilterType: 'All')
+    }
+
 
     stages {
 		stage('Checkout') {
@@ -54,7 +54,7 @@ pipeline {
 	post {
 
             failure {
-			updateGitlabCommitStatus name: 'build', state: 'failed'
+			updateGitCommitStatus name: 'build', state: 'failed'
 			// Only send e-mail errors when it is the master branch
 			script {
 				if(env.BRANCH_NAME == 'develop') {
@@ -67,7 +67,7 @@ pipeline {
 			}  			          
 		}
 		success {
-			updateGitlabCommitStatus name: 'build', state: 'success'
+			updateGitCommitStatus name: 'build', state: 'success'
 
 			script {
 				emailext (
