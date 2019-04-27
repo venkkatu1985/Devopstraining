@@ -34,9 +34,9 @@ pipeline {
 		timeout(time: 60, unit: 'MINUTES')
     }*/
 
-    triggers {
-        git(triggerOnPush: true, triggerOnMergeRequest: true, branchFilterType: 'All')
-    }
+    /*triggers {
+        gitlab(triggerOnPush: true, triggerOnMergeRequest: true, branchFilterType: 'All')
+    }*/
 
 
     stages {
@@ -51,7 +51,7 @@ pipeline {
 
 	}
 
-	post {
+	/*post {
 
             failure {
 			updateGitCommitStatus name: 'build', state: 'failed'
@@ -78,5 +78,5 @@ pipeline {
 			}
 		}  
 	} //end of post
-
+	*/
 }
