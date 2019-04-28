@@ -47,7 +47,19 @@ pipeline {
 		//checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'WM'], [$class: 'CloneOption', noTags: true, reference: '', shallow: true, timeout: 53], [$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: '/BuildScripts'] ]]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'SSH_USER_WITH_KEY', url: 'git@git.s.git']]])
 			}
 		}
+stage('Build') {
+			steps {
+			    println "Starting build"
+				dir("${env.WORKSPACE}\\build") {
+					bat "\"${tool 'msbuild'}\"  project.XML /p:SolutionFolder=\"${env.WORKSPACE}\" /p:BuildNumber=${env.ComponentVersion} "				
+				}
 
+				dir("${env.WORKSPACE}") {
+					echo "Creating a Build status file"
+                    writeFile file: "output/MR_Title.txt", text: "BUILD STATUS:"
+				}
+			}
+		} 
 
 	}
 

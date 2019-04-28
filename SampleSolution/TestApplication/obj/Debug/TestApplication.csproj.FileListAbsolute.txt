@@ -1,0 +1,6 @@
+C:\RaviProject\Devopstraining\SampleSolution\TestApplication\bin\Debug\TestApplication.dll
+C:\RaviProject\Devopstraining\SampleSolution\TestApplication\bin\Debug\TestApplication.pdb
+C:\RaviProject\Devopstraining\SampleSolution\TestApplication\obj\Debug\TestApplication.csprojAssemblyReference.cache
+C:\RaviProject\Devopstraining\SampleSolution\TestApplication\obj\Debug\TestApplication.csproj.CoreCompileInputs.cache
+C:\RaviProject\Devopstraining\SampleSolution\TestApplication\obj\Debug\TestApplication.dll
+C:\RaviProject\Devopstraining\SampleSolution\TestApplication\obj\Debug\TestApplication.pdb

@@ -1,0 +1,61 @@
+<Project ToolsVersion="4.6.1" DefaultTargets="BuildAndCopy" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	
+
+	<PropertyGroup>
+		<SolutionRoot>$(SolutionFolder)</SolutionRoot>
+		<ISOutputRoot>./dist</ISOutputRoot>
+        <ISOutputFolder>$(OutputRoot)\Project</ISOutputFolder>
+		
+				
+    </PropertyGroup>
+        <PropertyGroup>
+		<Configuration>Release</Configuration>
+		<BuildPlatform>Any CPU</BuildPlatform>
+		<Platform>AnyCPU</Platform>
+		<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+	</PropertyGroup>
+	
+
+	 <Target Name="BuildAndCopy" DependsOnTargets="Build">
+		<Message Text="+++++++++++++++++++++++++++++++++++++++++" /> 
+		<Message Text="Build completed  Successfully" /> 
+		<Message Text="+++++++++++++++++++++++++++++++++++++++++" />	
+	</Target>  
+	
+	
+	
+    <Target Name="Build">
+		<Message Text="+++++++++++++++++++++++++++++++++++++++++" /> 
+		<Message Text="Starting project.sln build..." /> 
+		<Message Text="+++++++++++++++++++++++++++++++++++++++++" /> 
+		<Message Text="Configuration=$(Configuration)" /> 
+		<Message Text="BuildPlatform=$(BuildPlatform)" /> 
+		<Message Text="+++++++++++++++++++++++++++++++++++++++++" /> 
+		<Message Text="Building project.sln Solution..." /> 
+		<Message Text="+++++++++++++++++++++++++++++++++++++++++" /> 
+		<MSBuild Projects="$(SolutionRoot)\SampleSolution\SampleSolution.sln"
+			 Targets="Rebuild"
+			 Properties="TargetFrameworkVersion=$(TargetFrameworkVersion);Configuration=$(Configuration);Platform=$(BuildPlatform);Verbose=True;ToolsVersion=4.6.1" />
+		<Message Text="+++++++++++++++++++++++++++++++++++++++++" /> 	 
+		<Message Text="Build project.sln is done." /> 
+		<Message Text="+++++++++++++++++++++++++++++++++++++++++" />
+        <Message Text="+++++++++++++++++++++++++++++++++++++++++" /> 
+		<Message Text="Build ALL is done." /> 
+		<Message Text="+++++++++++++++++++++++++++++++++++++++++" /> 
+    </Target>
+
+	<Target Name="WEB">		
+		<ItemGroup>
+			<WEBaspx Include="$(SolutionRoot)\Web\**\*.aspx" />
+			 			
+		</ItemGroup>
+		
+		<Copy SourceFiles="@(WEBsvg)" DestinationFolder="$(ISOutputFolder)\project\Web\%(RecursiveDir)" />		
+	</Target> 
+		
+	 <Target Name="Publish">
+        <Message Text="Running Publish" />
+        <Exec WorkingDirectory="$(BuildDir)" Command="choco pack  ./pack/project/project.nuspec --version $(version) --outputdirectory ./dist" LogStandardErrorAsError="true"/>
+        <Message Text="Publish Complete" />
+    </Target>
+</Project>	
