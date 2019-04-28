@@ -51,7 +51,7 @@ stage('Build') {
 			steps {
 			    println "Starting build"
 				dir("C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319") {
-					bat "MSBuild.exe" C:\\RaviProject\\Devopstraining\\build\project.XML /p:SolutionFolder="C:\\RaviProject\\Devopstraining"				
+					bat "MSBuild.exe" C:\\RaviProject\\Devopstraining\\build\\project.XML /p:SolutionFolder="C:\\RaviProject\\Devopstraining"				
 				}
 			
 			}
