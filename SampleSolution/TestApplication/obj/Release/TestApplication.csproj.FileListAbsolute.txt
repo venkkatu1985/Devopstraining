@@ -1,0 +1,5 @@
+C:\RaviProject\Devopstraining\SampleSolution\TestApplication\bin\Release\TestApplication.dll
+C:\RaviProject\Devopstraining\SampleSolution\TestApplication\bin\Release\TestApplication.pdb
+C:\RaviProject\Devopstraining\SampleSolution\TestApplication\obj\Release\TestApplication.csprojResolveAssemblyReference.cache
+C:\RaviProject\Devopstraining\SampleSolution\TestApplication\obj\Release\TestApplication.dll
+C:\RaviProject\Devopstraining\SampleSolution\TestApplication\obj\Release\TestApplication.pdb

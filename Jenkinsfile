@@ -50,14 +50,10 @@ pipeline {
 stage('Build') {
 			steps {
 			    println "Starting build"
-				dir("${env.WORKSPACE}\\build") {
-					bat "\"${tool 'msbuild'}\"  project.XML /p:SolutionFolder=\"${env.WORKSPACE}\" /p:BuildNumber=${env.ComponentVersion} "				
+				dir("C:\Windows\Microsoft.NET\Framework64\v4.0.30319") {
+					bat "MSBuild.exe" C:\RaviProject\Devopstraining\build\project.XML /p:SolutionFolder="C:\RaviProject\Devopstraining"				
 				}
-
-				dir("${env.WORKSPACE}") {
-					echo "Creating a Build status file"
-                    writeFile file: "output/MR_Title.txt", text: "BUILD STATUS:"
-				}
+			
 			}
 		} 
 
